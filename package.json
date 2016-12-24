@@ -1,7 +1,7 @@
 {
   "name": "camp-timestamp",
   "version": "1.0.0",
-  "description": "FreeCodeCamp Timestamp Microservice project",
+  "description": "FreeCodeCamp URL Shortener Microservice project",
   "engines": {
     "node": "5.9.1"
   },
