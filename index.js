@@ -10,8 +10,10 @@ app.get('/', function(req, res) {
   res.end();
 });
 
-app.get('/new/:url', function(req, res) {
-  var origin = decodeURI(req.params.url);
+app.get(/^\/new\/(.*)$/, function(req, res) {
+  // console.log(req.path);
+
+  var origin = decodeURI(req.path).substr(5);
   // var short = CryptoJS.AES.encrypt(origin, key);
   var wordArray = CryptoJS.enc.Utf8.parse(origin);
   var short = CryptoJS.enc.Base64.stringify(wordArray);
