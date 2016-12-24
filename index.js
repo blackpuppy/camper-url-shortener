@@ -14,6 +14,18 @@ app.get(/^\/new\/(.*)$/, function(req, res) {
   // console.log(req.path);
 
   var origin = decodeURI(req.path).substr(5);
+
+  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  var regex = new RegExp(expression);
+  if (!origin.match(regex)) {
+    console.log('invalid URL: ', origin);
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send('{"error":"Wrong url format, make sure you have a valid protocol and real site."}');
+    res.end();
+    return;
+  }
+
   // var short = CryptoJS.AES.encrypt(origin, key);
   var wordArray = CryptoJS.enc.Utf8.parse(origin);
   var short = CryptoJS.enc.Base64.stringify(wordArray);
