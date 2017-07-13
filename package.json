@@ -2,9 +2,6 @@
   "name": "camp-timestamp",
   "version": "1.0.0",
   "description": "FreeCodeCamp URL Shortener Microservice project",
-  "engines": {
-    "node": "5.9.1"
-  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
